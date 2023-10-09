@@ -4,23 +4,25 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: alfred
+  password: ranger
   host: localhost
   port: 5432
 
 development:
   <<: *default
   database: hello_rails
-  username: Rails.application.credentials.dig(:postgres, :username, :development)
-  password: Rails.application.credentials.dig(:postgres, :password, :development)
+  # username: Rails.application.credentials.dig(:postgres, :username, :development)
+  # password: Rails.application.credentials.dig(:postgres, :password, :development)
 
 test:
   <<: *default
   database: hello_rails_test
-  username: Rails.application.credentials.dig(:postgres, :username, :testing)
-  password: Rails.application.credentials.dig(:postgres, :password, :testing)
+  # username: Rails.application.credentials.dig(:postgres, :username, :testing)
+  # password: Rails.application.credentials.dig(:postgres, :password, :testing)
 
 production:
   <<: *default
   database: hello_rails
-  username: Rails.application.credentials.dig(:postgres, :username, :production)
-  password: Rails.application.credentials.dig(:postgres, :password, :production)
+  # username: Rails.application.credentials.dig(:postgres, :username, :production)
+  # password: Rails.application.credentials.dig(:postgres, :password, :production)
